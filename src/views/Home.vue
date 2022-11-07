@@ -1,34 +1,48 @@
 <template>
   <div class="home">
-    <h1>Home Page</h1>
-    <p><span>Most basic page builder v1</span></p>
 
-    <Editor component="div" class="container" :resolverMap="resolverMap">
+    <v-container fluid tag="section">
 
-      <SettingPanel />
+      <v-container fluid>
+        <v-row justify="center">
+          <h1>Home Page</h1>
+        </v-row>
 
-      <Frame component="div" class="preview-panel">
-        <Canvas component="Container">
-          <Paragraph content="O mamaco supremo" />
-        </Canvas>
-      </Frame>
+        <v-row justify="center">
+          <p><span>Most basic page builder v1</span></p>
+        </v-row>
+      </v-container>
 
-      <Blueprint component="button" class="btn">
-        Paragraph
-        <template v-slot:blueprint>
-          <Paragraph />
-        </template>
-      </Blueprint>
 
-      <Blueprint component="button" class="btn">
-        Container
-        <template v-slot:blueprint>
-          <Canvas component="Container" />
-        </template>
-      </Blueprint>
+      <v-row>
+        <Editor component="div" class="container" :resolverMap="resolverMap">
 
-      <Export />
-    </Editor>
+          <SettingPanel />
+
+          <Frame component="div" class="preview-panel">
+            <Canvas component="Container">
+              <Paragraph content="O mamaco supremo" />
+            </Canvas>
+          </Frame>
+
+          <Blueprint component="button" class="btn">
+            Paragraph
+            <template v-slot:blueprint>
+              <Paragraph />
+            </template>
+          </Blueprint>
+
+          <Blueprint component="button" class="btn">
+            Container
+            <template v-slot:blueprint>
+              <Canvas component="Container" />
+            </template>
+          </Blueprint>
+
+          <Export />
+        </Editor>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -52,7 +66,7 @@ export default {
     Export,
   },
 
-  data(){
+  data() {
     return {
       resolverMap: {
         Canvas, Container, Paragraph,
@@ -65,10 +79,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home{
+@import '@/assets/style/app.scss';
 
-  p{
-    span{
+.home {
+
+  h1 {
+    color: $test;
+  }
+
+  p {
+    span {
       color: white;
       background-color: darkmagenta;
       padding: 0.25rem 1.6rem;
