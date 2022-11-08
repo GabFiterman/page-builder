@@ -11,13 +11,13 @@ export default {
     name: 'Heading',
 
     props: {
-        size: String,
+        size: Number,
         content: String,
     },
 
     craft: {
         defaultProps: {
-            size: '1',
+            size: 1,
             content: 'Cabeçalho'
         },
 

@@ -2,7 +2,7 @@
     <v-container>
         <Frame component="div">
             <Canvas component="Container">
-                <Heading size="2"/>
+                <Heading />
                 <Paragraph content="Lorem ipsum dolor sit amet, qui minim labore." />
             </Canvas>
         </Frame>
