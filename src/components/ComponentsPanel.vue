@@ -14,6 +14,17 @@
         <v-row justify="center" class="my-1">
             <Blueprint component="div">
                 <v-btn dark>
+                    <v-icon>mdi-format-header-1</v-icon>
+                </v-btn>
+                <template v-slot:blueprint>
+                    <Heading />
+                </template>
+            </Blueprint>
+        </v-row>
+
+        <v-row justify="center" class="my-1">
+            <Blueprint component="div">
+                <v-btn dark>
                     <v-icon>mdi-crop-square</v-icon>
                 </v-btn>
                 <template v-slot:blueprint>
@@ -27,6 +38,7 @@
 <script>
 import { Canvas, Blueprint } from '@v-craft/core'
 import Paragraph from './elements/Paragraph.vue';
+import Heading from './elements/Heading.vue';
 import Container from './elements/Container.vue';
 
 export default {
@@ -36,7 +48,8 @@ export default {
         Canvas,
         Blueprint,
         Paragraph,
-        Container
+        Container,
+        Heading,
     },
 
 

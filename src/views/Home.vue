@@ -27,6 +27,7 @@
 import { Canvas, Editor, Frame, Blueprint } from '@v-craft/core';
 import Container from '@/components/elements/Container.vue';
 import Paragraph from '@/components/elements/Paragraph.vue';
+import Heading from '@/components/elements/Heading.vue';
 import SettingPanel from '@/components/SettingPanel.vue';
 import Export from '@/components/Export.vue';
 import Preview from '../components/Preview.vue';
@@ -40,6 +41,7 @@ export default {
     Editor,
     Frame,
     Paragraph,
+    Heading,
     SettingPanel,
     Blueprint,
     Export,
@@ -50,7 +52,7 @@ export default {
   data() {
     return {
       resolverMap: {
-        Canvas, Container, Paragraph,
+        Canvas, Container, Paragraph, Heading
       },
     };
   },
