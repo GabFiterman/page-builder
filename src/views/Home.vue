@@ -2,18 +2,6 @@
   <div class="home">
 
     <v-container fluid tag="section">
-
-      <v-container fluid>
-        <v-row justify="center">
-          <h1>Home Page</h1>
-        </v-row>
-
-        <v-row justify="center">
-          <p><span>Most basic page builder v1</span></p>
-        </v-row>
-      </v-container>
-
-
       <v-row>
         <Editor component="div" class="container" :resolverMap="resolverMap">
 
