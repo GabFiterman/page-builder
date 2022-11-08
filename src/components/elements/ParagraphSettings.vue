@@ -1,14 +1,21 @@
 <template>
-    <div>
-        <input class="form-control" v-model="content" />
-    </div>
+    <v-row>
+        <v-textarea 
+            label="Content" 
+            v-model="content" 
+            filled 
+            background-color="white" 
+            learable 
+            auto-grow 
+        />
+    </v-row>
 </template>
 
 <script>
 import { settingMixin } from '@v-craft/core';
 
 export default {
-    name:'ParagraphSettings',
+    name: 'ParagraphSettings',
 
     mixins: [settingMixin],
 
@@ -32,6 +39,5 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="scss" scoped>
 </style>

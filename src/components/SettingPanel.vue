@@ -1,33 +1,28 @@
 <template>
-  <div class="setting-panel">
+    <v-container fluid>
+        <v-row justify="center">
+            <v-col>
+                <ToggleEditable />
+            </v-col>
+        </v-row>
 
-    <div>
-        <input
-            :checked="editor.enabled"
-            @change="toggleState"
-            type="checkbox"
-            class="custom-control-input"
-            id="editorState"
-        />
+        <div v-if="settings">
+            <v-row justify="center">
+                <component class="form-control" v-for="(component, name) in settings" :key="name" :is="component"
+                    :node="selectedNode">
+                </component>
+            </v-row>
 
-        <label class="custom-control-label" for="editorState">Enable</label>
-    </div>
-
-    <div v-if="settings" class="settings">
-        <component
-            v-for="(component, name) in settings"
-            :key="name"
-            :is="component"
-            :node="selectedNode"
-        ></component>
-
-        <button class="btn" v-if="selectedNode" @click="removeElement">Delete</button>
-    </div>
-
-  </div>
+            <v-row justify="center">
+                <v-btn depressed color="error" @click="removeElement">Delete</v-btn>
+            </v-row>
+        </div>
+    </v-container>
 </template>
 
 <script>
+import ToggleEditable from '@/components/ToggleEditable.vue';
+
 export default {
     name: 'SettingPanel',
 
@@ -35,13 +30,17 @@ export default {
         'editor',
     ],
 
+    components: {
+        ToggleEditable,
+    },
+
     computed: {
-        selectedNode(){
+        selectedNode() {
             return this.editor.selectedNode;
         },
 
         settings() {
-            if(!this.selectedNode){
+            if (!this.selectedNode) {
                 return null;
             }
 
@@ -53,17 +52,15 @@ export default {
         removeElement() {
             return this.editor.removeNode(this.selectedNode);
         },
-        toggleState(){
-            if(this.editor.enabled){
-                this.editor.disable();
-            } else {
-                this.editor.enable();
-            }
-        },
     },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.form-control {
+    min-height: 50vh;
+    margin: 1rem 0.5rem;
 
+
+}
 </style>

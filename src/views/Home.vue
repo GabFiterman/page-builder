@@ -1,36 +1,25 @@
 <template>
-  <div class="home">
-
-    <v-container fluid tag="section">
+  <div class="teal darken-4 fill-height mx-0 px-0">
+    <Editor component="div" :resolverMap="resolverMap">
       <v-row>
-        <Editor component="div" class="container" :resolverMap="resolverMap">
+        <v-col class="col-1 teal accent-3">
+          <ComponentsPanel />
+        </v-col>
 
+        <v-col class="col-8 white">
+          <Preview class="heihgtFull"/>
+        </v-col>
+
+        <v-col class="col-3 teal accent-3">
           <SettingPanel />
-
-          <Frame component="div" class="preview-panel">
-            <Canvas component="Container">
-              <Paragraph content="O mamaco supremo" />
-            </Canvas>
-          </Frame>
-
-          <Blueprint component="button" class="btn">
-            Paragraph
-            <template v-slot:blueprint>
-              <Paragraph />
-            </template>
-          </Blueprint>
-
-          <Blueprint component="button" class="btn">
-            Container
-            <template v-slot:blueprint>
-              <Canvas component="Container" />
-            </template>
-          </Blueprint>
-
-          <Export />
-        </Editor>
+        </v-col>
       </v-row>
-    </v-container>
+
+      <!-- <v-row justify="center">
+        <Export />
+      </v-row> -->
+
+    </Editor>
   </div>
 </template>
 
@@ -39,7 +28,9 @@ import { Canvas, Editor, Frame, Blueprint } from '@v-craft/core';
 import Container from '@/components/elements/Container.vue';
 import Paragraph from '@/components/elements/Paragraph.vue';
 import SettingPanel from '@/components/SettingPanel.vue';
-import Export from '@/components/Export.vue'
+import Export from '@/components/Export.vue';
+import Preview from '../components/Preview.vue';
+import ComponentsPanel from '@/components/ComponentsPanel.vue';
 
 export default {
   name: 'Home',
@@ -52,6 +43,8 @@ export default {
     SettingPanel,
     Blueprint,
     Export,
+    Preview,
+    ComponentsPanel,
   },
 
   data() {
@@ -69,18 +62,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/style/app.scss';
 
-.home {
-
-  h1 {
-    color: $test;
-  }
-
-  p {
-    span {
-      color: white;
-      background-color: darkmagenta;
-      padding: 0.25rem 1.6rem;
-    }
-  }
+.heihgtFull{
+  min-height: 100vh;
 }
 </style>
