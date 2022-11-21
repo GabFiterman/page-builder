@@ -8,9 +8,20 @@
 
         <div v-if="settings">
             <v-row justify="center">
-                <component class="form-control" v-for="(component, name) in settings" :key="name" :is="component"
-                    :node="selectedNode">
-                </component>
+
+                <v-expansion-panels>
+                    <v-expansion-panel v-for="(component, name) in settings" :key="name">
+                        <v-expansion-panel-header>
+                            {{ name }}
+                        </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                            <component class="form-control" :is="component" :node="selectedNode">
+                            </component>
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                </v-expansion-panels>
+
+
             </v-row>
 
             <v-row justify="center">
