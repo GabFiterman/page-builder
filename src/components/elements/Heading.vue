@@ -1,5 +1,6 @@
 <template>
-    <Editor :tag="`h${tagType}`" :style="elementCSS" :class="[`text-h${this.tagType}`]" :value="content" @input="updateContent" />
+        <Editor :tag="`h${tagType}`" :style="elementCSS" :class="[`text-h${this.tagType}`]" :value="content"
+            @input="updateContent" />
 </template>
 
 <script>
@@ -17,10 +18,6 @@ export default {
         Editor
     },
 
-    inject: [
-        'node',
-    ],
-
     props: {
         tagType: Number,
         content: String,
@@ -30,7 +27,7 @@ export default {
         defaultProps: {
             tagType: 1,
             content: 'Cabeçalho',
-
+            
             elementStyle: {
                 'margin-top': 0,
                 'margin-left': 0,

@@ -1,21 +1,33 @@
 <template>
     <v-container fluid>
-        <v-row>
-            <label class="font-weight-bold" for="topValue">Margin Top: <span class="white text--black px-1 rounded font-weight-bold text-h5">{{getStyle('margin-top')}}</span>px</label>
+        <v-row justify="center">
+            <h1>Margin</h1>
         </v-row>
-        <v-row>
-    	    <v-slider
-                :value="getStyle('margin-top')"
-                @input="setStyle('margin-top', $event)"
-                step="2"
-    	        color="white"
-    	        track-color="black"
-    	        thumb-label="true"
-    	        thumb-color="black"
-    	        max="200"
-    	        min="-100"
-    	    ></v-slider>
+        
+        <v-row justify="center" class="mb-6">
+            <v-btn @click="resetMargin">Reset Margin</v-btn>
         </v-row>
+
+        <v-row class="controller-group">
+            <v-col v-for="(margin, index) in marginSides" :key="index">
+                <div class="controller">
+                    <v-label class="label">{{ margin }}: {{ getStyle(margin) }}</v-label>
+
+                    <v-slider 
+                        :value="getStyle(margin)" 
+                        @input="setStyle(margin, $event)"
+                        step="2" 
+                        color="white" 
+                        track-color="black" 
+                        thumb-color="black"
+                        :thumb-label="true" 
+                        max="200"
+                        min="-100">
+                    </v-slider>
+                </div>
+            </v-col>
+        </v-row>
+
     </v-container>
 </template>
 
@@ -26,15 +38,43 @@ export default {
 
     mixins: [mixin],
 
-    data(){
-        return{
-            topValue: 0,
+    data() {
+        return {
+            marginSides: ['margin-top', 'margin-right', 'margin-bottom', 'margin-left']
+        }
+    },
+
+    methods: {
+        resetMargin() {
+            this.setStyle('margin-top', 0);
+            this.setStyle('margin-right', 0);
+            this.setStyle('margin-bottom', 0);
+            this.setStyle('margin-left', 0);
         }
     }
 
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.controller-group {
+    width: 100%;
 
+    .controller {
+        display: flex;
+        flex-direction: column;
+
+        min-height: 10vh;
+        min-width: 6vw;
+        padding: 1rem 0.5rem 0rem .5rem;
+        margin-bottom: 2rem;
+        
+        border: 1px solid white;
+        border-radius: 5px;
+
+        background-color: rgba(255, 255, 255, .45);
+        box-shadow: 4px 9px 21px 0px rgba(0, 0, 0, 0.33);
+
+    }
+}
 </style>
