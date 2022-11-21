@@ -1,28 +1,47 @@
 <template>
-    <div class="Container">
-        <h1 :class="[`text-h${this.size}`]">{{ content }}</h1>
-    </div>
+    <Editor :tag="`h${tagType}`" :style="elementCSS" :class="[`text-h${this.tagType}`]" :value="content" @input="updateContent" />
 </template>
 
 <script>
+import Editor from './utils/Editor.vue';
 import HeadingSettings from './HeadingSettings.vue';
+import Margin from '../elements/styleSettings/Margin.vue';
+import elementStyleMixin from '../elements/elementStyleMixin.js';
 
 export default {
     name: 'Heading',
 
+    mixins: [elementStyleMixin],
+
+    components: {
+        Editor
+    },
+
+    inject: [
+        'node',
+    ],
+
     props: {
-        size: Number,
+        tagType: Number,
         content: String,
     },
 
     craft: {
         defaultProps: {
-            size: 1,
-            content: 'Cabeçalho'
+            tagType: 1,
+            content: 'Cabeçalho',
+
+            elementStyle: {
+                'margin-top': 0,
+                'margin-left': 0,
+                'margin-bottom': 0,
+                'margin-right': 0,
+            }
         },
 
         settings: {
             HeadingSettings,
+            Margin
         },
     },
 };

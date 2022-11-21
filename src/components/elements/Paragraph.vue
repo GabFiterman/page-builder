@@ -25,11 +25,11 @@ export default {
     'node',
   ],
 
-  methods: {
-    updateContent(content) {
-      this.node.setProps({ content });
-    },
-  },
+  // methods: {
+  //   updateContent(content) {
+  //     this.node.setProps({ content });
+  //   },
+  // },
 
   craft: {
     defaultProps: {

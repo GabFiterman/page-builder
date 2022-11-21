@@ -2,7 +2,7 @@
     <v-container>
         <Frame component="div">
             <Canvas component="Container">
-                <Heading />
+                <Heading content="Um título" :tagType="1"/>
                 <Paragraph content="Lorem ipsum dolor sit amet, qui minim labore." />
             </Canvas>
         </Frame>

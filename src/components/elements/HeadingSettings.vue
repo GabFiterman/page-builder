@@ -2,9 +2,9 @@
     <v-container fluid>
         <v-row>
             <v-slider 
-                v-model="elementProps.size" 
+                v-model="elementProps.tagType" 
                 @change="updateSize" 
-                :label="`Size: h${elementProps.size}`" 
+                :label="`tagType: h${elementProps.tagType}`" 
                 color="white" 
                 track-color="black"
                 thumb-label="always"
@@ -36,8 +36,8 @@ export default {
     mixins: [settingMixin],
 
     methods: {
-        updateSize(size){
-            this.elementPropsSetter({ size })
+        updateSize(tagType){
+            this.elementPropsSetter({ tagType })
         },
 
         updateContent(content){
