@@ -7,6 +7,7 @@
 import Editor from './utils/Editor.vue';
 import HeadingSettings from './HeadingSettings.vue';
 import Margin from '../elements/styleSettings/Margin.vue';
+import Padding from '../elements/styleSettings/Padding.vue';
 import elementStyleMixin from '../elements/elementStyleMixin.js';
 import styleDefaults from './styleSettings/styleDefaults.js'
 
@@ -34,7 +35,8 @@ export default {
 
         settings: {
             HeadingSettings,
-            Margin
+            Margin,
+            Padding
         },
     },
 };
