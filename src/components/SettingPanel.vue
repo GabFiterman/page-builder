@@ -58,9 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 .form-control {
-    min-height: 50vh;
     margin: 1rem 0.5rem;
-
-
 }
 </style>

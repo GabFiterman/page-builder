@@ -22,7 +22,7 @@
                         thumb-color="black"
                         :thumb-label="true" 
                         max="200"
-                        min="-100">
+                        min="0">
                     </v-slider>
                 </div>
             </v-col>
@@ -33,6 +33,7 @@
 
 <script>
 import mixin from './mixin.js';
+
 export default {
     name: 'Margin',
 
@@ -51,7 +52,7 @@ export default {
             this.setStyle('margin-bottom', 0);
             this.setStyle('margin-left', 0);
         }
-    }
+    },
 
 }
 </script>

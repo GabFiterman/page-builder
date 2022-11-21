@@ -8,11 +8,12 @@ import Editor from './utils/Editor.vue';
 import HeadingSettings from './HeadingSettings.vue';
 import Margin from '../elements/styleSettings/Margin.vue';
 import elementStyleMixin from '../elements/elementStyleMixin.js';
+import styleDefaults from './styleSettings/styleDefaults.js'
 
 export default {
     name: 'Heading',
 
-    mixins: [elementStyleMixin],
+    mixins: [elementStyleMixin, styleDefaults],
 
     components: {
         Editor
@@ -27,12 +28,7 @@ export default {
         defaultProps: {
             tagType: 1,
             content: 'Cabeçalho',
-            
             elementStyle: {
-                'margin-top': 0,
-                'margin-left': 0,
-                'margin-bottom': 0,
-                'margin-right': 0,
             }
         },
 

@@ -1,21 +1,29 @@
 <template>
-  <div class="Container">
+  <div class="Container" :style="elementCSS">
     <slot />
   </div>
 </template>
 
 <script>
+import elementStyleMixin from '../elements/elementStyleMixin.js';
 import ContainerSettings from './ContainerSettings.vue';
-import { settingMixin } from '@v-craft/core';
+import Margin from './styleSettings/Margin.vue';
+import styleDefaults from './styleSettings/styleDefaults.js'
 
 export default {
     name: 'Container',
 
-    mixins: [settingMixin],
+    mixins: [elementStyleMixin, styleDefaults],
 
     craft: {
+      defaultProps: {
+        elementStyle: {
+
+        }
+      },
       settings: {
         ContainerSettings,
+        Margin
       }
     }
     
