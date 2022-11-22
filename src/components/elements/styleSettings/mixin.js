@@ -13,11 +13,9 @@ export default {
     },
 
     setStyle(name, value) {
+
       this.elementPropsSetter({
-        elementStyle: {
-          ...this.elementProps.elementStyle,
-          [name]: value,
-        },
+        elementStyle:  Object.assign(this.elementProps.elementStyle, {[name]: value}),
       });
     },
     
